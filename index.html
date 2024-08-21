@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage de Camille & Charles-Eric</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary-color: #2c5f2d; /* Vert foncé */
+    --secondary-color: #f5e6d3; /* Beige */
+    --text-color: #4a4a4a;
+    --background-color: #ffffff;
+}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+        }
+        .header {
+            background-color: var(--background-color);
+            padding: 20px 0;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .bienvenue {
+ 	    margin: 0 auto;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: var(--background-color);
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero {
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        .btn-liste {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        .section {
+            padding: 50px 20px 0px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .grid-item {
+            background-color: var(--secondary-color);
+            padding: 20px 20px 20px 20px;
+        }
+        .grid-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            margin-top: 0;
+        }
+        .testimonial {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+margin: 40px 0px 0px 0px;
+        }
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: var(--secondary-color);
+            padding: 40px 20px;
+	    font-size: 40px;
+            text-align: center;
+	    font-family: 'Dancing Script', cursive;
+	
+        }
+        /* Ajout des styles pour les animations au survol */
+        nav a {
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .btn {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #6ab0b0;
+            transform: translateY(-3px);
+        }
+        .btn-liste {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-liste:hover {
+            background-color: #6ab0b0;
+            transform: translateY(-3px);
+        }
+        .grid-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            background-color: rgba(0,0,0,0.5);
+            padding: 20px;
+        }
+        .carousel-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .carousel-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .carousel-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+        .carousel-nav button.active {
+            background-color: white;
+        }
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
+	        .carousel {
+            position: relative;
+            height: 500px; /* Réduit de moitié */
+            overflow: hidden;
+            margin: 0 auto; /* Centrer le carrousel */
+            max-width: 800px; /* Limiter la largeur maximale */
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            background-color: rgba(0,0,0,0.3); /* Plus transparent */
+            padding: 20px;
+        }
+        .carousel-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px; /* Taille réduite */
+            margin-bottom: 10px;
+        }
+        .carousel-content p {
+            font-size: 16px; /* Taille réduite */
+            margin-bottom: 0; /* Supprimé l'espace pour le bouton RSVP */
+        }
+.infos {
+    font-style: italic;
+font-weight: bold;
+    font-size: 12px; /* Ajustez cette valeur selon vos préférences */
+    color: #666; /* Pour un contraste légèrement réduit, optionnel */
+}
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.section-image {
+    max-width: 80%;
+    height: 250px;
+    display: block;
+    margin: 0 auto 30px;
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#messe">Messe</a>
+            <a href="#fete">La fête</a>
+            <a href="#liste-mariage">Liste de mariage</a>
+        </nav>
+    </header>
+
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item"><img src="images/carroussel_1.jpg" alt="Image 1"></div>
+            <div class="carousel-item"><img src="images/carroussel_2.jpg" alt="Image 2"></div>
+	    <div class="carousel-item"><img src="images/carroussel_3.jpg" alt="Image 1"></div>
+            <div class="carousel-item"><img src="images/carroussel_4.jpg" alt="Image 2"></div>
+	    <div class="carousel-item"><img src="images/carroussel_5.jpg" alt="Image 1"></div>
+            <div class="carousel-item"><img src="images/carroussel_6.jpg" alt="Image 2"></div>
+        </div>
+        <div class="carousel-content">
+            <h1>Camille & Charles-Eric</h1>
+            <p>23 novembre 2024</p>
+        </div>
+        <button class="carousel-prev">&lt;</button>
+        <button class="carousel-next">&gt;</button>
+        <div class="carousel-nav"></div>
+    </div>    <section id="accueil" class="section">
+        <h2>Bienvenue à notre mariage</h2>
+        <p class="bienvenue">Chère famille, chers amis, quelle joie de vous compter parmi nous le 23 novembre prochain, au moment où nous prendrons sans doute le plus grand engagement de notre vie ! <br> <br>Vous trouverez ici toutes les informations relatives à cette journée, que nous voulons simple et conviviale.</p>
+    </section>
+
+   <section id="messe" class="section">
+    <h2>La Messe</h2>
+<img src="images/cathedrale.jpg" alt="Image de la messe" class="section-image">
+    <div class="grid">
+        <div class="grid-item">
+            <h3>La messe</h3>
+            <p>14h30 à la cathédrale de Coutances</p>
+            <a href="https://goo.gl/maps/XXXXX" target="_blank" class="btn">Voir sur Google Maps</a>
+        </div>
+        <div class="grid-item">
+            <h3>Répétition</h3>
+            <p>Répétition des chants à 13h00 dans la cathédrale</p>
+            <a href="https://drive.google.com/XXXXX" target="_blank" class="btn">Voir les partitions</a>
+        </div>
+        <div class="grid-item">
+            <h3>Parking</h3>
+<p>Pour se garer:</p>
+            <button class="btn" onclick="openParkingPopup()">Détails du parking</button>
+        </div>
+    </div>
+</section>
+
+    <section id="fete" class="section">
+        <h2>La fête</h2>
+<img src="images/domaine.jpeg" alt="Image de la messe" class="section-image">
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Infos pratiques</h3>
+                <p>À partir de 18h <br> Domaine de la Guérie <br> 50200 Coutances </p>
+<p class="infos"> 7 min en voiture | 30 min à pied | 15 min en courant </p>
+<a href="https://goo.gl/maps/XXXXX" target="_blank" class="btn">Voir l'itinéraire</a>
+
+            </div>
+            <div class="grid-item">
+                <h3>Pour proposer son aide</h3>
+                <p>Toute personne souhaitant aider à la préparation des festivités est la bienvenue! <br> Pour faciliter l'organistation, merci de remplir ce questionnaire si ce n'est pas déjà fait!</p>
+<a href="https://goo.gl/maps/XXXXX" target="_blank" class="btn">Participer</a>
+            </div>
+            <div class="grid-item">
+                <h3>Pour les musiciens</h3>
+                <p>La soirée commencera par valse et danse folklorique! Pour ceux souhaitants se joindre à la troupe, vous trouverez les partitions en suivant le lien ci-dessous!</p>
+                <a href="https://goo.gl/maps/XXXXX" target="_blank" class="btn">Voir l'itinéraire</a>
+            </div>
+        </div>
+    </section>
+
+<section id="lendemain" class="section">
+        <h2>Le lendemain</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Messe dominicale</h3>
+                <p>À 11h à la cathédrale de Coutance! </p>
+            </div>
+            <div class="grid-item">
+                <h3>Déjeuner</h3>
+                <p>Rendez-vous pour tout ceux qui le souhaitent à 12h30 au domaine de la Guérie pour déjeuner!</p>
+            </div>
+        </div>
+    </section>
+<section id="important" class="section">
+        <h2>Important</h2>
+        <div class="grid">
+<img src="images/dream.png" alt="Image de la messe" class="section-image">
+<img src="images/dream2.png" alt="Image de la messe" class="section-image">
+        </div>
+	<div><p>
+N’hésitez donc pas à bien vous couvrir…
+</p></div>
+    </section>
+
+    <section id="liste-mariage" class="testimonial">
+        <h2>Liste de mariage</h2>
+        <p>Un immense merci à ceux qui nous voudront nous aider à bien partir dans la vie ! 
+Nous vous proposons : <br><br>
+&#8226; de vous laisser inspirer pour nous offrir un cadeau qui vous semble utile <br>(St Joseph est un très bon conseiller) <br>
+&#8226; ou de participer à notre liste accessible sur le site millemercismariage<br><br>
+</p>
+<a href="https://goo.gl/maps/XXXXX" target="_blank" class="btn-liste">Accéder à la liste</a>
+    </section>
+
+
+<div id="parkingPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeParkingPopup()">&times;</span>
+        <h3>Informations sur le parking</h3>
+        <img src="images/popup.png" alt="Plan du parking" style="width:100%;max-width:400px;">
+        <p>Vous trouverez des places de parking disponibles autour de la cathédrale.</p>
+    </div>
+</div>
+
+    <footer>
+        <p>Nous avons hâte de célébrer ce jour spécial avec vous !</p>
+        <p>Camille & Charles-Eric</p>
+    </footer>
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.querySelector('.carousel-prev');
+            const nextBtn = carousel.querySelector('.carousel-next');
+            const nav = carousel.querySelector('.carousel-nav');
+            let currentIndex = 0;
+
+            // Créer les boutons de navigation
+            items.forEach((_, index) => {
+                const button = document.createElement('button');
+                button.addEventListener('click', () => goToSlide(index));
+                nav.appendChild(button);
+            });
+
+            function updateNav() {
+                nav.querySelectorAll('button').forEach((btn, index) => {
+                    btn.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                inner.style.transform = `translateX(-${index * 100}%)`;
+                updateNav();
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                goToSlide(currentIndex);
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                goToSlide(currentIndex);
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Auto-play
+            setInterval(nextSlide, 5000);
+
+            updateNav();
+        });
+  function openParkingPopup() {
+        document.getElementById('parkingPopup').style.display = 'block';
+    }
+
+    function closeParkingPopup() {
+        document.getElementById('parkingPopup').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('parkingPopup')) {
+            closeParkingPopup();
+        }
+    }
+    </script>
+</body>
+</html>
